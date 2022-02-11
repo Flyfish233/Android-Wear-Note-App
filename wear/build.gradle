@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "mnf.android.wearnote"
         minSdkVersion 23
@@ -16,21 +17,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lint {
-        abortOnError false
+    lintOptions {
         checkReleaseBuilds false
+        abortOnError false
     }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files('libs/gson-2.8.0 .jar')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/gson-2.8.0 .jar')
 
     implementation 'com.android.support:wear:28.0.0'
     implementation 'com.google.android.support:wearable:2.4.0'
 
     implementation 'com.google.android.gms:play-services-wearable:16.0.1'
-    implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     compileOnly 'com.google.android.wearable:wearable:2.4.0'
